@@ -2,8 +2,7 @@ package com.example.simpleStore.Compra;
 
 import java.util.List;
 
-
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -16,7 +15,7 @@ public class compraController {
         this.icompra = icompra;
     }
 
-    @PostMapping("/")
+    @GetMapping("/")
     public List<compraModel> getAllCompras(){
         return icompra.findAll();
     }
