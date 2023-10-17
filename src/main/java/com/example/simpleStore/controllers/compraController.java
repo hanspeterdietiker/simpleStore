@@ -9,14 +9,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/compras")
 public class compraController {
-    private final Icompra icompra;
+    private final CompraRepository compraRepository;
 
-    public compraController(Icompra icompra) {
-        this.icompra = icompra;
+    public compraController(CompraRepository compraRepository) {
+        this.compraRepository = compraRepository;
     }
 
     @GetMapping("/search-by-orders")
     public List<compraModel> getAllCompras(){
-        return icompra.findAll();
+        return compraRepository.findAll();
     }
 }
