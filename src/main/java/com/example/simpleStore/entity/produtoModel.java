@@ -1,4 +1,4 @@
-package com.example.simpleStore.Produto;
+package com.example.simpleStore.entity;
 
 
 import jakarta.persistence.Column;

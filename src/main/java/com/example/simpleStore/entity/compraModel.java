@@ -1,7 +1,4 @@
-package com.example.simpleStore.Compra;
-
-import com.example.simpleStore.Cliente.clienteModel;
-import com.example.simpleStore.Produto.produtoModel;
+package com.example.simpleStore.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

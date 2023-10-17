@@ -1,7 +1,10 @@
-package com.example.simpleStore.Cliente;
+package com.example.simpleStore.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface Icliente extends JpaRepository<clienteModel, Long>{
-    
+import com.example.simpleStore.entity.clienteModel;
+
+public interface ClienteRepository extends JpaRepository<clienteModel, Long>{
+    clienteModel findByName(String name);
+    clienteModel findByEmail (String email);
 }

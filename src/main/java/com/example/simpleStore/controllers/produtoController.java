@@ -1,4 +1,4 @@
-package com.example.simpleStore.Produto;
+package com.example.simpleStore.controllers;
 
 
 import java.util.List;
@@ -7,18 +7,21 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.simpleStore.entity.produtoModel;
+import com.example.simpleStore.repositories.ProdutoRepository;
+
 
 @RestController
 @RequestMapping("/produtos")
 public class produtoController {
-    private final IProduto iproduto;
+    private final ProdutoRepository produtoRepository;
 
-    public produtoController(IProduto iproduto){
-        this.iproduto = iproduto;
+    public produtoController(ProdutoRepository produtoRepository){
+        this.produtoRepository = produtoRepository;
     }
 
     @GetMapping("/search-by-products")
     public List<produtoModel> getAllProdutos(){
-        return iproduto.findAll();
+        return produtoRepository.findAll();
     }
 }

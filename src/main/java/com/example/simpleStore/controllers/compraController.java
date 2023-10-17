@@ -1,10 +1,13 @@
-package com.example.simpleStore.Compra;
+package com.example.simpleStore.controllers;
 
 import java.util.List;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.example.simpleStore.entity.compraModel;
+import com.example.simpleStore.repositories.CompraRepository;
 
 @RestController
 @RequestMapping("/compras")
