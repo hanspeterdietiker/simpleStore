@@ -2,8 +2,7 @@ package com.example.simpleStore.Cliente;
 
 import java.util.List;
 
-
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -16,7 +15,7 @@ public class clienteController {
         this.icliente = icliente;
     }
 
-    @PostMapping("/")
+    @GetMapping("/")
     public List<clienteModel> getAllClientes() {
         return icliente.findAll();
 
