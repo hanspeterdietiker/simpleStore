@@ -15,7 +15,7 @@ public class compraController {
         this.icompra = icompra;
     }
 
-    @GetMapping("/")
+    @GetMapping("/search-by-orders")
     public List<compraModel> getAllCompras(){
         return icompra.findAll();
     }

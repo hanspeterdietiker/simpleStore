@@ -17,7 +17,7 @@ public class produtoController {
         this.iproduto = iproduto;
     }
 
-    @GetMapping("/")
+    @GetMapping("/search-by-products")
     public List<produtoModel> getAllProdutos(){
         return iproduto.findAll();
     }

@@ -15,7 +15,7 @@ public class clienteController {
         this.icliente = icliente;
     }
 
-    @GetMapping("/")
+    @GetMapping("/search-by-client")
     public List<clienteModel> getAllClientes() {
         return icliente.findAll();
 
