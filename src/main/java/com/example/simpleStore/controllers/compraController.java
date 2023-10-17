@@ -2,7 +2,11 @@ package com.example.simpleStore.controllers;
 
 import java.util.List;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,8 +22,19 @@ public class compraController {
         this.compraRepository = compraRepository;
     }
 
+    @PostMapping("/registering-orders")
+    public ResponseEntity<compraModel> create(@RequestBody compraModel buy) {
+        if (buy != null) {
+            compraModel novaCompra = compraRepository.save(buy);
+            return ResponseEntity.status(HttpStatus.ACCEPTED).body(novaCompra);
+        } else {
+            return ResponseEntity.badRequest().build();
+        }
+
+    }
+
     @GetMapping("/search-by-orders")
-    public List<compraModel> getAllCompras(){
+    public List<compraModel> getAllCompras() {
         return compraRepository.findAll();
     }
 }

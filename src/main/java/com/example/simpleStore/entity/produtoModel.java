@@ -6,11 +6,13 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 
 @Entity(name = "tb_produto")
-@Data
+@Getter
+@Setter
 public class produtoModel {
 
     @Id
@@ -20,7 +22,7 @@ public class produtoModel {
     private Long id;
 
     @Column(name = "nome_Produto")
-    private String name;
+    private String nameProduct;
 
     @Column(name = "preco_Produto")
     private float price;

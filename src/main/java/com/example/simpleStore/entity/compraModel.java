@@ -8,9 +8,12 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.PrimaryKeyJoinColumn;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
-@Data
+@Getter
+@Setter
 public class compraModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,7 +29,11 @@ public class compraModel {
     @PrimaryKeyJoinColumn
     private produtoModel produto;
     
-    @Column(name="qtd_Compra")
+    @Column(name="qtd_compra")
     private int quantidade;
+
+    public String toString( int quantidade, produtoModel nameProduct, clienteModel nameClient){
+        return "Cliente:" +getCliente() + "Produto:" + getProduto() + "Quantidade:" + getQuantidade();
+    }
 
 }
