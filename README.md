@@ -1,4 +1,4 @@
-# simple_Storage_API
+# simple_Store_API
 
 API REST de uma simples loja:
 
