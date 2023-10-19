@@ -8,7 +8,7 @@
 
 #
 ### Tecnologias utilizadas: 
-Java, Maven, SpringBoot , Postman, H2 (Data).
+Java, Maven, SpringBoot , Postman, H2 (DataBase).
 
 Working ... 🛠
 
