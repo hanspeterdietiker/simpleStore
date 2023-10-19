@@ -8,7 +8,7 @@
 
 #
 ### Tecnologias utilizadas: 
-Java, Maven, SpringBoot,Postman,H2.
+Java, Maven, SpringBoot , Postman, H2(DataSQL).
 
 Working ... 🛠
 
