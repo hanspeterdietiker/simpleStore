@@ -26,7 +26,7 @@ public class clienteController {
 
     @PostMapping("/register-client")
     public ResponseEntity create(@RequestBody clienteModel clModel) {
-        var client = this.clienteRepository.findByName(clModel.getName());
+        var client = this.clienteRepository.findByNameClient(clModel.getNameClient());
 
         var emailClient = this.clienteRepository.findByEmail(clModel.getEmail());
 
@@ -38,10 +38,10 @@ public class clienteController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Cliente ja foi registrado no banco de dados");
         }
 
-        var passwordClientOcult = BCrypt.withDefaults().hashToString(15, clModel.getPassword().toCharArray());
-        clModel.setPassword(passwordClientOcult);
+        
 
-        return ResponseEntity.status(HttpStatus.CREATED).body("Cliente cadastrado no banco de dados");
+        var clientCadastrado = this.clienteRepository.save(clModel);
+        return ResponseEntity.status(HttpStatus.CREATED).body(clientCadastrado);
 
     }
 
