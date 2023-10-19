@@ -1,7 +1,11 @@
 # simple_Store_API
 
-API REST de uma simples loja:
+•Client
 
-Cliente, Produto e Compra
+•Product
 
-Working...
+•Order
+
+Tecnologias utilizadas: Java, Maven, SpringBoot,Postman,H2.
+
+Working ... 🛠
