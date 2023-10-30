@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.simpleStore.entity.clienteModel;
 import com.example.simpleStore.repositories.ClienteRepository;
 
-import at.favre.lib.crypto.bcrypt.BCrypt;
+
 
 @RestController
 @RequestMapping("/clientes")

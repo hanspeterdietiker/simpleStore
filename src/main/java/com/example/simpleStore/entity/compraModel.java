@@ -12,7 +12,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Entity
+@Entity(name = "tb_Compras")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -32,9 +32,25 @@ public class compraModel {
     @PrimaryKeyJoinColumn
     private produtoModel produto;
     
-    @Column(name="qtd_compra")
+   
+    @OneToOne
+    @PrimaryKeyJoinColumn
+    private produtoModel price;
+
+    
+    @Column(name = "quantidadeProduto")
     private int quantidade;
 
+    @Column (name = "valorTotalCompra")
+    private float valorTotalCompra;
+
+
+    public float valorTotalCompra ( int quantidade, produtoModel price, float valorTotalCompra ){
+        return valorTotalCompra 
+        = quantidade * price.getPrice();
+        
+
+    }
     
     }
 
