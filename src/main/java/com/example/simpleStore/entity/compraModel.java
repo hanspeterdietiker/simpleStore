@@ -20,10 +20,10 @@ import lombok.Setter;
 public class compraModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    
-    @Column(name="id_compra")
+
+    @Column(name = "id_compra")
     private Long id;
-    
+
     @OneToOne
     @PrimaryKeyJoinColumn
     private clienteModel cliente;
@@ -31,27 +31,18 @@ public class compraModel {
     @OneToOne
     @PrimaryKeyJoinColumn
     private produtoModel produto;
-    
-   
+
     @OneToOne
     @PrimaryKeyJoinColumn
     private produtoModel price;
 
-    
     @Column(name = "quantidadeProduto")
     private int quantidade;
 
-    @Column (name = "valorTotalCompra")
-    private float valorTotalCompra;
 
-
-    public float valorTotalCompra ( int quantidade, produtoModel price, float valorTotalCompra ){
-        return valorTotalCompra 
-        = quantidade * price.getPrice();
-        
+    public float valorTotalCompra(int quantidade, produtoModel price, float valorTotalCompra) {
+        return valorTotalCompra = quantidade * price.getPrice();
 
     }
-    
-    }
 
-
+}
