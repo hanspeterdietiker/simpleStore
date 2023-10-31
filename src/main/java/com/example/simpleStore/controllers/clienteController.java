@@ -16,7 +16,7 @@ import com.example.simpleStore.entities.clienteModel;
 import com.example.simpleStore.repositories.ClienteRepository;
 
 @RestController
-@RequestMapping("/clientes")
+@RequestMapping("/client")
 public class clienteController {
     private ClienteRepository clienteRepository;
 
