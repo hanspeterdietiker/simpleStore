@@ -12,8 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.simpleStore.entity.compraModel;
-
+import com.example.simpleStore.entities.compraModel;
 import com.example.simpleStore.repositories.CompraRepository;
 
 @RestController
@@ -39,15 +38,15 @@ public class compraController {
     @PutMapping("/{id}")
     public ResponseEntity updateCompra(@PathVariable Long id, @RequestBody compraModel CompraModel) {
 
-        var compra = this.compraRepository.findById(id).orElse(null);
+        var idCompra = this.compraRepository.findById(id).orElse(null);
 
-        if (compra == null) {
+        if (idCompra == null) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                     .body("A ID da compra não encontrada");
 
         }
 
-        var compraUpdate = this.compraRepository.save(compra);
+        var compraUpdate = this.compraRepository.save(idCompra);
         return ResponseEntity.ok().body(compraUpdate);
 
     }

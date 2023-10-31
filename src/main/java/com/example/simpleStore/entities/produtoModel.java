@@ -1,4 +1,4 @@
-package com.example.simpleStore.entity;
+package com.example.simpleStore.entities;
 
 
 import jakarta.persistence.Column;
