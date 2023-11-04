@@ -1,5 +1,7 @@
 package com.example.simpleStore.entities;
 
+import java.math.BigDecimal;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -39,10 +41,9 @@ public class compraModel {
     @Column(name = "quantidadeProduto")
     private int quantidade;
 
-
-    public float valorTotalCompra(int quantidade, produtoModel price, float valorTotalCompra) {
-        return valorTotalCompra = quantidade * price.getPrice();
-
+    public BigDecimal valorTotalCompra(int quantidade, produtoModel price) {
+        BigDecimal preco = price.getPrice();
+       return preco.multiply(BigDecimal.valueOf(quantidade));
     }
 
 }

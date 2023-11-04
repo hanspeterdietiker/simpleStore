@@ -1,6 +1,5 @@
 package com.example.simpleStore.controllers;
 
-
 import java.util.List;
 
 import org.apache.catalina.connector.Response;
@@ -15,19 +14,18 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.simpleStore.entities.produtoModel;
 import com.example.simpleStore.repositories.ProdutoRepository;
 
-
 @RestController
 @RequestMapping("/produtos")
 public class produtoController {
     private final ProdutoRepository produtoRepository;
 
-    public produtoController(ProdutoRepository produtoRepository){
+    public produtoController(ProdutoRepository produtoRepository) {
         this.produtoRepository = produtoRepository;
     }
 
     @PostMapping("/registering-products")
-    public ResponseEntity <produtoModel> create(@RequestBody produtoModel ProdutoModel){
-        if ( ProdutoModel != null ) {
+    public ResponseEntity<produtoModel> create(@RequestBody produtoModel ProdutoModel) {
+        if (ProdutoModel != null) {
             produtoModel novoProduto = produtoRepository.save(ProdutoModel);
             return ResponseEntity.status(HttpStatus.CREATED).body(novoProduto);
         } else {
@@ -36,7 +34,7 @@ public class produtoController {
     }
 
     @GetMapping("/search-by-products")
-    public List<produtoModel> getAllProdutos(){
+    public List<produtoModel> getAllProdutos() {
         return produtoRepository.findAll();
     }
 }

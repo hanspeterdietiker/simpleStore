@@ -1,5 +1,6 @@
 package com.example.simpleStore.entities;
 
+import java.math.BigDecimal;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -11,7 +12,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-
 @Entity(name = "tb_produto")
 @Getter
 @Setter
@@ -21,7 +21,7 @@ public class produtoModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    
+
     @Column(name = "id_Produto")
     private Long id;
 
@@ -29,8 +29,8 @@ public class produtoModel {
     private String nameProduct;
 
     @Column(name = "preco_Produto")
-    private float price;
+    private BigDecimal price;
 
-    
+   
 
 }
