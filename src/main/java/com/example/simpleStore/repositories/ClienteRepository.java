@@ -8,4 +8,6 @@ public interface ClienteRepository extends JpaRepository<clienteModel, Long> {
     clienteModel findByNameClient(String nameClient);
 
     clienteModel findByEmail(String email);
+
+    clienteModel update(long id, clienteModel client);
 }

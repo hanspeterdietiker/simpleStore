@@ -19,12 +19,11 @@ public class produtoDto implements Serializable {
     private String nameProduct;
     private BigDecimal price;
 
-    public produtoDto (produtoModel entity){
+    public produtoDto(produtoModel entity) {
         this.id = entity.getId();
         this.nameProduct = entity.getNameProduct();
         this.price = entity.getPrice();
-    
+
     }
 
-    
 }
