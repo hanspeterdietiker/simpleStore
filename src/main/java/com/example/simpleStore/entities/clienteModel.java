@@ -16,19 +16,22 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class clienteModel {
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
+    
     @Column(name = "id_Cliente")
     private long id;
-
+    
     @Column(name = "nome_Cliente")
     private String nameClient;
-
+    
     @Column(name = "email_Cliente")
     private String email;
-
+    
     @Column(name = "senha_Cliente")
     private String password;
-
+    
+    public clienteModel(String nameClient, String email) {
+    }
 }

@@ -3,6 +3,7 @@ package com.example.simpleStore.dtos;
 import java.io.Serializable;
 
 import com.example.simpleStore.entities.clienteModel;
+import com.example.simpleStore.entities.produtoModel;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -12,14 +13,16 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 public class clienteDto implements Serializable {
-   
-    private long id;
+    private static final long serialVersionUID = 1L;
+
     private String nameClient;
     private String email;
 
-    public clienteDto(clienteModel entity) {
-        this.id = entity.getId();
+    public clienteDto (clienteModel entity){
+        
         this.nameClient = entity.getNameClient();
         this.email = entity.getEmail();
     }
+
+    
 }
