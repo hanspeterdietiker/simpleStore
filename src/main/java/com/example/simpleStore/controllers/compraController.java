@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.simpleStore.dtos.clienteDto;
+
 import com.example.simpleStore.dtos.compraDto;
 import com.example.simpleStore.entities.compraModel;
 import com.example.simpleStore.repositories.CompraRepository;
@@ -29,7 +29,7 @@ public class compraController {
         this.compraRepository = compraRepository;
     }
 
-    @PostMapping("/registering-orders")
+    @PostMapping("/register-orders")
     public ResponseEntity<compraModel> create(@RequestBody compraModel buy) {
         if (buy != null) {
             compraModel novaCompra = compraRepository.save(buy);
@@ -40,7 +40,7 @@ public class compraController {
 
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/update-order/{id}")
     public ResponseEntity<compraDto> updateCompra(@PathVariable Long id, @RequestBody compraModel CompraModel) {
 
         var idCompra = this.compraRepository.findById(id).orElse(null);
@@ -56,7 +56,7 @@ public class compraController {
 
     }
 
-    @GetMapping("/search-by-orders")
+    @GetMapping("/searching-by-orders")
     public List<compraModel> getAllCompras() {
         return compraRepository.findAll();
     }

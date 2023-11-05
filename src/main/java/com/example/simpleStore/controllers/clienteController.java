@@ -55,7 +55,7 @@ public class clienteController {
 
     }
 
-    @GetMapping("/search-by-client")
+    @GetMapping("/searching-by-client")
     public List<clienteModel> getAllClientes() {
         return clienteRepository.findAll();
 
