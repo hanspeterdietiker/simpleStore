@@ -31,6 +31,4 @@ public class produtoModel {
     @Column(name = "preco_Produto")
     private BigDecimal price;
 
-   
-
 }

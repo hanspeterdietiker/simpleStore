@@ -31,4 +31,7 @@ public class compraDto implements Serializable {
         this.quantidade = entity.getQuantidade();
         this.valorTotalCompra = entity.valorTotalCompra(quantidade, price);
     }
+
+    public compraDto(clienteModel cliente, produtoModel price, int quantidade) {
+    }
 }

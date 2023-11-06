@@ -3,7 +3,7 @@ package com.example.simpleStore.dtos;
 import java.io.Serializable;
 
 import com.example.simpleStore.entities.clienteModel;
-import com.example.simpleStore.entities.produtoModel;
+
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

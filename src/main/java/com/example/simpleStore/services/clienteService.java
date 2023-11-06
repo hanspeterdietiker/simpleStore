@@ -15,11 +15,12 @@ public class clienteService {
     private ClienteRepository clienteRepository;
 
     @Transactional
-    public clienteModel save(clienteDto cliente){
-        clienteModel newCliente = new clienteModel(cliente.getNameClient(), cliente.getEmail());
-        clienteModel clienteSave= this.clienteRepository.save(newCliente);
+    public clienteModel save(clienteDto cliente) {
 
-      return clienteRepository.save(clienteSave);
+        clienteModel newCliente = new clienteModel(cliente.getNameClient(), cliente.getEmail());
+        clienteModel clienteSave = this.clienteRepository.save(newCliente);
+
+        return clienteRepository.save(clienteSave);
     }
 
 }

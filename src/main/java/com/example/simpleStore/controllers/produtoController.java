@@ -2,7 +2,7 @@ package com.example.simpleStore.controllers;
 
 import java.util.List;
 
-import org.apache.catalina.connector.Response;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,8 +15,9 @@ import com.example.simpleStore.entities.produtoModel;
 import com.example.simpleStore.repositories.ProdutoRepository;
 
 @RestController
-@RequestMapping("/produtos")
+@RequestMapping("/api/v1/produtos")
 public class produtoController {
+
     private final ProdutoRepository produtoRepository;
 
     public produtoController(ProdutoRepository produtoRepository) {
@@ -33,7 +34,7 @@ public class produtoController {
         }
     }
 
-    @GetMapping("/search-by-products")
+    @GetMapping("/searching-by-products")
     public List<produtoModel> getAllProdutos() {
         return produtoRepository.findAll();
     }

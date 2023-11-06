@@ -2,7 +2,6 @@ package com.example.simpleStore.controllers;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -22,7 +21,6 @@ import com.example.simpleStore.repositories.ClienteRepository;
 @RequestMapping("/api/v1/client")
 public class clienteController {
 
-    @Autowired
     private final ClienteRepository clienteRepository;
 
     public clienteController(ClienteRepository clienteRepository) {
@@ -59,6 +57,11 @@ public class clienteController {
     public List<clienteModel> getAllClientes() {
         return clienteRepository.findAll();
 
+    }
+
+    @GetMapping("/searching-by-client/{id}")
+    public List<clienteModel> getById(@PathVariable long id) {
+        return clienteRepository.findById(id);
     }
 
     @DeleteMapping("/delete-client/{id}")
