@@ -50,19 +50,22 @@ public class clienteController {
     public ResponseEntity<clienteDto> update(@PathVariable Long id, @RequestBody clienteModel updateClient) {
         clienteModel existingClient = clienteRepository.findById(id).orElse(null);
 
-        if(existingClient != null){
+        if (existingClient != null) {
             existingClient.setNameClient(updateClient.getNameClient());
+
             existingClient.setEmail(updateClient.getEmail());
+
             clienteModel updatedClient = clienteRepository.save(existingClient);
+
             clienteDto responseDto = new clienteDto(updatedClient.getNameClient(), updatedClient.getEmail());
             return ResponseEntity.ok().body(responseDto);
-        } else{
+        } else {
             return ResponseEntity.notFound().build();
         }
 
     }
 
-    @GetMapping("/searching-by-client")
+    @GetMapping("/searching-by-clients")
     public List<clienteModel> getAllClientes() {
         return clienteRepository.findAll();
 

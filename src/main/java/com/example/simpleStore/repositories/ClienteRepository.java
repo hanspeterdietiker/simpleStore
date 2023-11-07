@@ -11,7 +11,7 @@ import java.util.List;
 public interface ClienteRepository extends JpaRepository<clienteModel, Long> {
     @Modifying
     @Query("UPDATE tb_cliente c SET c.nameClient = :nameClient, c.email = :email WHERE c.id = :id")
-    void updateCliente(@Param("id") Long id, @Param("nameClient") String nameClient, @Param("email") String email);
+    void updateProduto(@Param("id") Long id, @Param("nameClient") String nameClient, @Param("email") String email);
 
     List<clienteModel> findById(long id);
 

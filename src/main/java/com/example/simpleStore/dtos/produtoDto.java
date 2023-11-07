@@ -26,4 +26,7 @@ public class produtoDto implements Serializable {
 
     }
 
+    public produtoDto(String nameProduct, BigDecimal price) {
+    }
+
 }

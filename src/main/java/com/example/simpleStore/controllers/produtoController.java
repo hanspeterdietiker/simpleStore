@@ -2,15 +2,18 @@ package com.example.simpleStore.controllers;
 
 import java.util.List;
 
-
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.simpleStore.dtos.produtoDto;
 import com.example.simpleStore.entities.produtoModel;
 import com.example.simpleStore.repositories.ProdutoRepository;
 
@@ -24,7 +27,7 @@ public class produtoController {
         this.produtoRepository = produtoRepository;
     }
 
-    @PostMapping("/registering-products")
+    @PostMapping("/registering-product")
     public ResponseEntity<produtoModel> create(@RequestBody produtoModel ProdutoModel) {
         if (ProdutoModel != null) {
             produtoModel novoProduto = produtoRepository.save(ProdutoModel);
@@ -34,8 +37,41 @@ public class produtoController {
         }
     }
 
+    @PutMapping("/update-product/{id}")
+    public ResponseEntity<produtoDto> update(@RequestBody produtoModel updateProduto, @PathVariable Long id) {
+        produtoModel existingProduct = produtoRepository.findById(id).orElse(null);
+        
+        if (existingProduct != null) {
+            existingProduct.setNameProduct(updateProduto.getNameProduct());
+
+            existingProduct.setPrice(updateProduto.getPrice());
+
+            produtoModel updatedProduto = produtoRepository.save(existingProduct);
+
+            produtoDto responseDto = new produtoDto(updatedProduto.getNameProduct(), updatedProduto.getPrice());
+            return ResponseEntity.ok().body(responseDto);
+        }
+
+        return ResponseEntity.notFound().build();
+    }
+
+    @GetMapping("/searching-by-product/{id}")
+    public List<produtoModel> getById(@PathVariable long id) {
+        return produtoRepository.findById(id);
+    }
+
     @GetMapping("/searching-by-products")
     public List<produtoModel> getAllProdutos() {
         return produtoRepository.findAll();
+    }
+
+    @DeleteMapping("/delete-product/{id}")
+    public ResponseEntity<String> deleteUserEntity(@PathVariable long id) {
+        if (produtoRepository.existsById(id)) {
+            produtoRepository.deleteById(id);
+            return ResponseEntity.ok("Produto deletado com sucesso");
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Produto não encontrado");
+        }
     }
 }
