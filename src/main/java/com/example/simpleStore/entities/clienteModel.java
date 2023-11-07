@@ -33,6 +33,8 @@ public class clienteModel {
     private String password;
 
     public clienteModel(String nameClient, String email) {
+        this.nameClient= nameClient;
+        this.email=email;
     }
 
 }

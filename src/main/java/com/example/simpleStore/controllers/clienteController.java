@@ -47,9 +47,18 @@ public class clienteController {
     }
 
     @PutMapping("/update-client/{id}")
-    public ResponseEntity<clienteDto> update(@RequestBody clienteModel client, @PathVariable long id) {
-        var attClient = clienteRepository.update(id, client);
-        return ResponseEntity.ok().body(new clienteDto(attClient.getNameClient(), attClient.getEmail()));
+    public ResponseEntity<clienteDto> update(@PathVariable Long id, @RequestBody clienteModel updateClient) {
+        clienteModel existingClient = clienteRepository.findById(id).orElse(null);
+
+        if(existingClient != null){
+            existingClient.setNameClient(updateClient.getNameClient());
+            existingClient.setEmail(updateClient.getEmail());
+            clienteModel updatedClient = clienteRepository.save(existingClient);
+            clienteDto responseDto = new clienteDto(updatedClient.getNameClient(), updatedClient.getEmail());
+            return ResponseEntity.ok().body(responseDto);
+        } else{
+            return ResponseEntity.notFound().build();
+        }
 
     }
 
