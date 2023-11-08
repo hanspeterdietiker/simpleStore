@@ -7,6 +7,9 @@ import org.springframework.transaction.annotation.Transactional;
 import com.example.simpleStore.dtos.clienteDto;
 import com.example.simpleStore.entities.clienteModel;
 import com.example.simpleStore.repositories.ClienteRepository;
+import org.springframework.web.bind.annotation.PathVariable;
+
+import java.util.List;
 
 @Service
 public class clienteService {
@@ -19,6 +22,16 @@ public class clienteService {
         clienteModel newCliente = new clienteModel(cliente.getNameClient(), cliente.getEmail());
         this.clienteRepository.save(newCliente);
         return  newCliente;
+
+    }
+
+
+
+    public List<clienteModel> getById(@PathVariable long id){
+        return clienteRepository.findById(id);
+    }
+    public List<clienteModel> getAllClientes(){
+        return clienteRepository.findAll();
 
     }
 
