@@ -18,17 +18,19 @@ public class clienteService {
     private ClienteRepository clienteRepository;
 
     @Transactional
-    public clienteModel createClient(clienteDto cliente) {
-        clienteModel newCliente = new clienteModel(cliente.getNameClient(), cliente.getEmail());
+    public clienteModel createClient(clienteModel cliente) {
+        clienteModel newCliente = new clienteModel(
+                cliente.getId(), cliente.getNameClient(), cliente.getEmail(), cliente.getPassword());
         this.clienteRepository.save(newCliente);
-        return  newCliente;
+        return newCliente;
 
     }
 
-    public List<clienteModel> getById(@PathVariable long id){
+    public List<clienteModel> getById(@PathVariable long id) {
         return clienteRepository.findById(id);
     }
-    public List<clienteModel> getAllClientes(){
+
+    public List<clienteModel> getAllClientes() {
         return clienteRepository.findAll();
 
     }
