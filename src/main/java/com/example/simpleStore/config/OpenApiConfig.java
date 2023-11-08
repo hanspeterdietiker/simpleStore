@@ -14,7 +14,7 @@ import io.swagger.v3.oas.annotations.servers.Server;
 
         ),
         description = "OpenApi Documentação para Projeto ",
-        title= "OpenApi specificação - Hanspeter",
+        title= "OpenApi especificação - Hanspeter",
         version = "1.0",
         license = @License (
             name = "Licence Hanspeter ",
