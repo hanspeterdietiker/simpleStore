@@ -25,8 +25,6 @@ public class clienteService {
 
     }
 
-
-
     public List<clienteModel> getById(@PathVariable long id){
         return clienteRepository.findById(id);
     }
