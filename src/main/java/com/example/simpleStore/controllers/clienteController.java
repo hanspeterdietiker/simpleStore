@@ -1,6 +1,7 @@
 package com.example.simpleStore.controllers;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.example.simpleStore.services.ClienteService;
 import jakarta.validation.Valid;
@@ -38,26 +39,26 @@ public class clienteController {
     }
 
     @PutMapping("/update-client/{id}")
-    public ResponseEntity<clienteDto> update(@PathVariable Long id, @RequestBody clienteModel attClient)  {
+    public ResponseEntity<clienteDto> update(@PathVariable Long id, @RequestBody clienteModel attClient) throws Exception {
         var updatedClient = clienteService.update(id, attClient);
         return ResponseEntity.ok(new clienteDto(updatedClient.getNameClient(), updatedClient.getEmail()));
     }
 
 
     @GetMapping("/searching-by-clients")
-    public List<clienteModel> getAllClientes() {
+    public List<clienteModel> getAllClientes() throws Exception {
         return clienteService.getAllClientes();
 
     }
 
     @GetMapping("/searching-by-client/{id}")
-    public ResponseEntity<List<clienteModel>> searchById(@PathVariable long id) {
+    public ResponseEntity<Optional<clienteModel>> searchById(@PathVariable long id) throws Exception {
         var cliente = clienteService.getById(id);
         return ResponseEntity.ok().body(cliente);
     }
 
     @DeleteMapping("/delete-client/{id}")
-    public ResponseEntity<String> deleteUserEntity(@PathVariable long id) {
+    public ResponseEntity<String> deleteUserEntity(@PathVariable long id) throws Exception {
         clienteService.deleteClient(id);
         return  ResponseEntity.ok().body("Cliente deletado");
     }

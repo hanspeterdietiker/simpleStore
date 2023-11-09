@@ -4,6 +4,7 @@ package com.example.simpleStore.services;
 import org.springframework.beans.factory.annotation.Autowired;
 
 
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 
@@ -28,40 +29,40 @@ public class ClienteService {
     }
 
 
-    public clienteModel update(@PathVariable long id, clienteModel updateClient) {
+    public clienteModel update(@PathVariable long id, clienteModel updateClient) throws Exception {
         var existingClient = clienteRepository.getReferenceById(id);
         if (existingClient != null) {
             existingClient.setNameClient(updateClient.getNameClient());
             existingClient.setEmail(updateClient.getEmail());
             return clienteRepository.save(existingClient);
         } else {
-            throw new NullPointerException();
+            throw new Exception("Id não encontrada no Banco de Dados");
         }
 
 
     }
 
 
-    public List<clienteModel> getById(@PathVariable long id) {
+    public Optional<clienteModel> getById(@PathVariable long id) throws Exception {
         if (clienteRepository.findById(id).isEmpty()) {
-            throw new NullPointerException("Id não encontrada");
+            throw new Exception("Id não encontrada no Banco de Dados");
 
         } else {
             return clienteRepository.findById(id);
         }
     }
 
-    public List<clienteModel> getAllClientes() {
+    public List<clienteModel> getAllClientes() throws Exception {
         if (clienteRepository.findAll().isEmpty()) {
-            throw new NullPointerException("Usúario não encontrado");
+            throw new Exception("Usuarios não encontrado no Banco de Dados");
         } else {
             return clienteRepository.findAll();
         }
     }
 
-    public void deleteClient(@PathVariable long id) {
+    public void deleteClient(@PathVariable long id) throws Exception {
         if (clienteRepository.findById(id).isEmpty()) {
-            throw new NullPointerException("Id não encontrada");
+            throw new Exception("Id não encontrada no Banco de Dados");
         } else {
             clienteRepository.existsById(id);
             clienteRepository.deleteById(id);
