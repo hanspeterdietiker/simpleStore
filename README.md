@@ -16,6 +16,7 @@ Working ... 🛠
 
 #
 ### Api Doc
-![API DOC](https://github.com/hanspeterdietiker/simple_Store_API/assets/126719678/0c616ebd-e2c8-4b57-8e5e-c85674ccdfa8)
+![API DOC](https://github.com/hanspeterdietiker/simple_Store_API/assets/126719678/f66ca07d-b2c1-4ea2-9602-c9970295539d)
+
 
 #
