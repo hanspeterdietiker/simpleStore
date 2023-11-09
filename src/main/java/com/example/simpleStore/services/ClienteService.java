@@ -45,7 +45,7 @@ public class ClienteService {
 
     public Optional<clienteModel> getById(@PathVariable long id) throws Exception {
         if (clienteRepository.findById(id).isEmpty()) {
-            throw new Exception("Id não encontrada no Banco de Dados");
+            throw new Exception("Id do Cliente não encontrada no Banco de Dados");
 
         } else {
             return clienteRepository.findById(id);
