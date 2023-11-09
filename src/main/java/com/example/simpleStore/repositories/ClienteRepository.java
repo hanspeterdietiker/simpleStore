@@ -6,6 +6,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import com.example.simpleStore.entities.clienteModel;
+
+import java.util.Collection;
 import java.util.List;
 
 public interface ClienteRepository extends JpaRepository<clienteModel, Long> {
@@ -18,5 +20,6 @@ public interface ClienteRepository extends JpaRepository<clienteModel, Long> {
     clienteModel findByNameClient(String nameClient);
 
     clienteModel findByEmail(String email);
+
 
 }

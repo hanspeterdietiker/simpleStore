@@ -37,23 +37,6 @@ public class produtoController {
         }
     }
 
-    @PutMapping("/update-product/{id}")
-    public ResponseEntity<produtoDto> update(@RequestBody produtoModel updateProduto, @PathVariable Long id) {
-        produtoModel existingProduct = produtoRepository.findById(id).orElse(null);
-        
-        if (existingProduct != null) {
-            existingProduct.setNameProduct(updateProduto.getNameProduct());
-
-            existingProduct.setPrice(updateProduto.getPrice());
-
-            produtoModel updatedProduto = produtoRepository.save(existingProduct);
-
-            produtoDto responseDto = new produtoDto(updatedProduto.getNameProduct(), updatedProduto.getPrice());
-            return ResponseEntity.ok().body(responseDto);
-        }
-
-        return ResponseEntity.notFound().build();
-    }
 
     @GetMapping("/searching-by-product/{id}")
     public List<produtoModel> getById(@PathVariable long id) {

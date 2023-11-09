@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.simpleStore.dtos.clienteDto;
 import com.example.simpleStore.entities.clienteModel;
 import com.example.simpleStore.repositories.ClienteRepository;
-
+import com.example.simpleStore.services.clienteService;
 @RestController
 @RequestMapping("/api/v1/client")
 public class clienteController {
@@ -72,8 +72,9 @@ public class clienteController {
     }
 
     @GetMapping("/searching-by-client/{id}")
-    public List<clienteModel> getById(@PathVariable long id) {
-        return clienteRepository.findById(id);
+    public ResponseEntity<List<clienteModel>> searchById(@PathVariable long id, clienteService service) {
+        var cliente = service.getById(id);
+        return ResponseEntity.ok().body(cliente);
     }
 
     @DeleteMapping("/delete-client/{id}")

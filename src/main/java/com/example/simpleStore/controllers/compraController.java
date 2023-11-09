@@ -38,22 +38,6 @@ public class compraController {
 
     }
 
-    @PutMapping("/uptade-order/{id}")
-    public ResponseEntity<compraDto> updateCompra(@PathVariable Long id, @RequestBody compraModel CompraModel) {
-
-        var idCompra = this.compraRepository.findById(id).orElse(null);
-
-        if (idCompra == null) {
-            return ResponseEntity.badRequest().build();
-
-        } else {
-            var compraUpdate = this.compraRepository.save(idCompra);
-            return ResponseEntity.ok().body(
-                    new compraDto(compraUpdate.getCliente(), compraUpdate.getPrice(), compraUpdate.getQuantidade()));
-        }
-
-    }
-
     @GetMapping("/searching-by-orders")
     public List<compraModel> getAllCompras() {
         return compraRepository.findAll();
