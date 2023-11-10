@@ -1,6 +1,7 @@
 package com.example.simpleStore.services;
 
 
+import com.example.simpleStore.dtos.ClienteDto;
 import org.springframework.beans.factory.annotation.Autowired;
 
 
@@ -27,7 +28,7 @@ public class ClienteService {
     }
 
 
-    public ClienteModel update(@PathVariable Long id, ClienteModel updateClient) throws Exception {
+    public ClienteModel update(@PathVariable Long id, ClienteDto updateClient) throws Exception {
         var existingClient = clienteRepository.getReferenceById(id);
         if (existingClient != null) {
             existingClient.setNameClient(updateClient.getNameClient());
