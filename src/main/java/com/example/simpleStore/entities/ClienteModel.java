@@ -32,9 +32,10 @@ public class ClienteModel {
     @Column(name = "senha_Cliente")
     private String password;
 
-    public ClienteModel(String nameClient, String email) {
-        this.nameClient= nameClient;
-        this.email=email;
+    public ClienteModel(String nameClient, String email, Long id) {
+        this.id = id;
+        this.nameClient = nameClient;
+        this.email = email;
     }
 
 }

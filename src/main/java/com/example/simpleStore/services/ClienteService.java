@@ -27,7 +27,7 @@ public class ClienteService {
     }
 
 
-    public ClienteModel update(@PathVariable long id, ClienteModel updateClient) throws Exception {
+    public ClienteModel update(@PathVariable Long id, ClienteModel updateClient) throws Exception {
         var existingClient = clienteRepository.getReferenceById(id);
         if (existingClient != null) {
             existingClient.setNameClient(updateClient.getNameClient());
@@ -41,7 +41,7 @@ public class ClienteService {
     }
 
 
-    public Optional<ClienteModel> getById(@PathVariable long id) throws Exception {
+    public Optional<ClienteModel> getById(@PathVariable Long id) throws Exception {
         if (clienteRepository.findById(id).isEmpty()) {
             throw new Exception("Id do Cliente não encontrada no Banco de Dados");
 
@@ -58,7 +58,7 @@ public class ClienteService {
         }
     }
 
-    public void deleteClient(@PathVariable long id) throws Exception {
+    public void deleteClient(@PathVariable Long id) throws Exception {
         if (clienteRepository.findById(id).isEmpty()) {
             throw new Exception("Id não encontrada no Banco de Dados");
         } else {

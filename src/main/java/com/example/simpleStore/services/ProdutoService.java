@@ -22,7 +22,7 @@ public class ProdutoService {
         return produtoRepository.save(produto);
     }
 
-    public Optional<ProdutoModel> getById(@PathVariable long id) throws Exception {
+    public Optional<ProdutoModel> getById(@PathVariable Long id) throws Exception {
         if (produtoRepository.findById(id).isEmpty()) {
             throw new Exception("Id do produto não encontrada no Banco de Dados");
         } else {
@@ -39,7 +39,7 @@ public class ProdutoService {
         }
     }
 
-    public void deleteProduct(@PathVariable long id) throws Exception {
+    public void deleteProduct(@PathVariable Long id) throws Exception {
         if (produtoRepository.findById(id).isEmpty()) {
               throw new Exception("Id do produto não encontrada no Banco de Dados");
         }

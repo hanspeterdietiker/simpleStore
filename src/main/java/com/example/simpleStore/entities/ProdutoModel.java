@@ -1,22 +1,10 @@
 package com.example.simpleStore.entities;
 
+import jakarta.persistence.*;
+
 import java.math.BigDecimal;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
 @Entity(name = "tb_produto")
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
 public class ProdutoModel {
 
     @Id
@@ -31,6 +19,38 @@ public class ProdutoModel {
     @Column(name = "preco_Produto")
     private BigDecimal price;
 
-    public ProdutoModel(String nameProduct, BigDecimal price) {
+
+
+    public ProdutoModel(Long id, String nameProduct, BigDecimal price) {
+        this.id = id;
+        this.nameProduct = nameProduct;
+        this.price = price;
+    }
+
+    public ProdutoModel() {
+    }
+
+    public Long getId() {
+        return this.id;
+    }
+
+    public String getNameProduct() {
+        return this.nameProduct;
+    }
+
+    public BigDecimal getPrice() {
+        return this.price;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setNameProduct(String nameProduct) {
+        this.nameProduct = nameProduct;
+    }
+
+    public void setPrice(BigDecimal price) {
+        this.price = price;
     }
 }

@@ -32,7 +32,7 @@ public class ClienteController {
 
     @PostMapping("/register-client")
     public ResponseEntity createClient(@RequestBody @Valid ClienteModel client) {
-        var newClient = new ClienteModel(client.getNameClient(), client.getEmail());
+        var newClient = new ClienteModel(client.getId(),client.getNameClient(), client.getEmail(), client.getPassword());
         clienteService.createClient(client);
         return ResponseEntity.status(HttpStatus.CREATED).body(newClient);
     }
