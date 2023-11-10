@@ -1,5 +1,6 @@
 package com.example.simpleStore.dtos;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 import com.example.simpleStore.entities.ClienteModel;
@@ -14,6 +15,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 public class CompraDto implements Serializable {
+    @Serial
     private static final long serialVersionUID = 1L;
 
     private long id;

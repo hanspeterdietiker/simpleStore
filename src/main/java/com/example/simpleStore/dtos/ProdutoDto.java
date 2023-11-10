@@ -1,5 +1,6 @@
 package com.example.simpleStore.dtos;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
@@ -13,6 +14,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 public class ProdutoDto implements Serializable {
+    @Serial
     private static final long serialVersionUID = 1L;
 
     private Long id;
@@ -26,7 +28,5 @@ public class ProdutoDto implements Serializable {
 
     }
 
-    public ProdutoDto(String nameProduct, BigDecimal price) {
-    }
 
 }
