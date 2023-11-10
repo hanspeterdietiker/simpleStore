@@ -4,12 +4,10 @@ package com.example.simpleStore.services;
 import org.springframework.beans.factory.annotation.Autowired;
 
 
-
 import org.springframework.stereotype.Service;
 
 
-
-import com.example.simpleStore.entities.clienteModel;
+import com.example.simpleStore.entities.ClienteModel;
 import com.example.simpleStore.repositories.ClienteRepository;
 import org.springframework.web.bind.annotation.PathVariable;
 
@@ -24,12 +22,12 @@ public class ClienteService {
     private ClienteRepository clienteRepository;
 
 
-    public clienteModel createClient(clienteModel cliente) {
+    public ClienteModel createClient(ClienteModel cliente) {
         return clienteRepository.save(cliente);
     }
 
 
-    public clienteModel update(@PathVariable long id, clienteModel updateClient) throws Exception {
+    public ClienteModel update(@PathVariable long id, ClienteModel updateClient) throws Exception {
         var existingClient = clienteRepository.getReferenceById(id);
         if (existingClient != null) {
             existingClient.setNameClient(updateClient.getNameClient());
@@ -43,7 +41,7 @@ public class ClienteService {
     }
 
 
-    public Optional<clienteModel> getById(@PathVariable long id) throws Exception {
+    public Optional<ClienteModel> getById(@PathVariable long id) throws Exception {
         if (clienteRepository.findById(id).isEmpty()) {
             throw new Exception("Id do Cliente não encontrada no Banco de Dados");
 
@@ -52,9 +50,9 @@ public class ClienteService {
         }
     }
 
-    public List<clienteModel> getAllClientes() throws Exception {
+    public List<ClienteModel> getAllClientes() throws Exception {
         if (clienteRepository.findAll().isEmpty()) {
-            throw new Exception("Usuarios não encontrado no Banco de Dados");
+            throw new Exception("Usuarios não encontrados no Banco de Dados");
         } else {
             return clienteRepository.findAll();
         }

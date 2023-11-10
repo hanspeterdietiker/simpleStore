@@ -22,7 +22,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class compraModel {
+public class CompraModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
@@ -31,15 +31,15 @@ public class compraModel {
 
     @OneToOne
     @PrimaryKeyJoinColumn
-    private clienteModel cliente;
+    private ClienteModel cliente;
 
     @OneToOne
     @PrimaryKeyJoinColumn
-    private produtoModel produto;
+    private ProdutoModel produto;
 
     @OneToOne
     @PrimaryKeyJoinColumn
-    private produtoModel price;
+    private ProdutoModel price;
 
     @Column(name = "quantidadeProduto")
     private int quantidade;
@@ -49,7 +49,7 @@ public class compraModel {
     @CreationTimestamp
     private LocalDateTime purchasedAt;
 
-    public BigDecimal valorTotalCompra(int quantidade, produtoModel price) {
+    public BigDecimal valorTotalCompra(int quantidade, ProdutoModel price) {
         BigDecimal preco = price.getPrice();
         return preco.multiply(BigDecimal.valueOf(quantidade));
     }

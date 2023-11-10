@@ -3,12 +3,15 @@ package com.example.simpleStore.repositories;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 
-import com.example.simpleStore.entities.produtoModel;
-import java.util.List;
+import com.example.simpleStore.entities.ProdutoModel;
+
+import java.util.Collection;
+import java.util.Optional;
 
 
-
-public interface ProdutoRepository extends JpaRepository<produtoModel, Long>{
+public interface ProdutoRepository extends JpaRepository<ProdutoModel, Long>{
     
-    List<produtoModel> findById(long id);
+    Optional<ProdutoModel> findById(long id);
+
+
 }

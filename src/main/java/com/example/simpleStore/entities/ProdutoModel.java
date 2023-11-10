@@ -17,7 +17,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class produtoModel {
+public class ProdutoModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,4 +31,6 @@ public class produtoModel {
     @Column(name = "preco_Produto")
     private BigDecimal price;
 
+    public ProdutoModel(String nameProduct, BigDecimal price) {
+    }
 }

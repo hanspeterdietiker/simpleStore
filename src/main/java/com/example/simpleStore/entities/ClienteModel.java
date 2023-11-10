@@ -15,7 +15,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class clienteModel {
+public class ClienteModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,7 +32,7 @@ public class clienteModel {
     @Column(name = "senha_Cliente")
     private String password;
 
-    public clienteModel(String nameClient, String email) {
+    public ClienteModel(String nameClient, String email) {
         this.nameClient= nameClient;
         this.email=email;
     }

@@ -5,7 +5,6 @@ import java.util.Optional;
 
 import com.example.simpleStore.services.ClienteService;
 import jakarta.validation.Valid;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -17,42 +16,42 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.simpleStore.dtos.clienteDto;
-import com.example.simpleStore.entities.clienteModel;
+import com.example.simpleStore.dtos.ClienteDto;
+import com.example.simpleStore.entities.ClienteModel;
 
 @RestController
 @RequestMapping("/api/v1/client")
-public class clienteController {
+public class ClienteController {
 
     private final ClienteService clienteService;
 
-    public clienteController(ClienteService clienteService) {
+    public ClienteController(ClienteService clienteService) {
         this.clienteService = clienteService;
     }
 
 
     @PostMapping("/register-client")
-    public ResponseEntity createClient(@RequestBody @Valid clienteModel client) {
-        var newClient = new clienteModel(client.getNameClient(), client.getEmail());
+    public ResponseEntity createClient(@RequestBody @Valid ClienteModel client) {
+        var newClient = new ClienteModel(client.getNameClient(), client.getEmail());
         clienteService.createClient(client);
         return ResponseEntity.status(HttpStatus.CREATED).body(newClient);
     }
 
     @PutMapping("/update-client/{id}")
-    public ResponseEntity<clienteDto> update(@PathVariable Long id, @RequestBody clienteModel attClient) throws Exception {
+    public ResponseEntity<ClienteDto> update(@PathVariable Long id, @RequestBody ClienteModel attClient) throws Exception {
         var updatedClient = clienteService.update(id, attClient);
-        return ResponseEntity.ok(new clienteDto(updatedClient.getNameClient(), updatedClient.getEmail()));
+        return ResponseEntity.ok(new ClienteDto(updatedClient.getNameClient(), updatedClient.getEmail()));
     }
 
 
     @GetMapping("/searching-by-clients")
-    public List<clienteModel> getAllClientes() throws Exception {
+    public List<ClienteModel> getAllClientes() throws Exception {
         return clienteService.getAllClientes();
 
     }
 
     @GetMapping("/searching-by-client/{id}")
-    public ResponseEntity<Optional<clienteModel>> searchById(@PathVariable long id) throws Exception {
+    public ResponseEntity<Optional<ClienteModel>> searchById(@PathVariable long id) throws Exception {
         var cliente = clienteService.getById(id);
         return ResponseEntity.ok().body(cliente);
     }
