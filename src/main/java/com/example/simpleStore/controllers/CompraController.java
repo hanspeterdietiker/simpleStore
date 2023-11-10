@@ -38,7 +38,7 @@ public class CompraController {
 
         var newCompra = new CompraModel(
                 buy.getId(),
-                buy.getQuantidade(), buy.getPurchasedAt());
+                 buy.getPurchasedAt());
         compraService.createCompra(buy);
         return ResponseEntity.status(HttpStatus.CREATED).body(newCompra);
     }

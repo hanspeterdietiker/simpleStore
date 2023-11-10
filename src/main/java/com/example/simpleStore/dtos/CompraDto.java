@@ -4,9 +4,11 @@ import java.io.Serial;
 import java.io.Serializable;
 
 
-
 import com.example.simpleStore.entities.CompraModel;
-import java.math.BigDecimal;
+
+
+import java.time.LocalDateTime;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
@@ -19,12 +21,11 @@ public class CompraDto implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private long id;
-    private int quantidade;
-    private BigDecimal valorTotalCompra;
+    private LocalDateTime purchasedAt;
 
     public CompraDto(CompraModel entity) {
         this.id = entity.getId();
-        this.quantidade = entity.getQuantidade();
+        this.purchasedAt = entity.getPurchasedAt();
 
     }
 
