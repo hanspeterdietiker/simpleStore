@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
-
+/*
 @Component
 public class FilterOrderAuth extends OncePerRequestFilter {
     @Autowired
@@ -21,4 +21,4 @@ public class FilterOrderAuth extends OncePerRequestFilter {
             throws ServletException, IOException {
 
     }
-}
+}*/

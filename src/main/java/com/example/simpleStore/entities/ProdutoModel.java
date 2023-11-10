@@ -22,6 +22,13 @@ public class ProdutoModel {
     @Column(name = "quantidade_Produto")
     private int quantidade;
 
+    @Column(name = "valorTotalCompra")
+    private BigDecimal valorTotalCompra;
+
+    public ProdutoModel() {
+
+    }
+
     public int getQuantidade() {
         return quantidade;
     }
@@ -30,18 +37,29 @@ public class ProdutoModel {
         this.quantidade = quantidade;
     }
 
-    public BigDecimal valorTotalCompra(int quantidade, ProdutoModel price) {
-        BigDecimal preco = price.getPrice();
-        return preco.multiply(BigDecimal.valueOf(quantidade));
+    public BigDecimal valorTotalCompra() {
+        BigDecimal preco = getPrice();
+        return preco.multiply(BigDecimal.valueOf(getQuantidade()));
     }
 
-    public ProdutoModel(Long id, String nameProduct, BigDecimal price) {
+    public BigDecimal getValorTotalCompra() {
+        return valorTotalCompra;
+    }
+
+
+    public void setValorTotalCompra(BigDecimal valorTotalCompra) {
+        this.valorTotalCompra = valorTotalCompra;
+    }
+
+
+    public ProdutoModel(Long id, String nameProduct, BigDecimal price, int quantidade) {
+        this.quantidade = quantidade;
         this.id = id;
         this.nameProduct = nameProduct;
         this.price = price;
     }
 
-    public ProdutoModel() {
+    public ProdutoModel(Long id, String nameProduct, BigDecimal price) {
     }
 
     public Long getId() {

@@ -1,5 +1,6 @@
 package com.example.simpleStore.controllers;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
@@ -32,7 +33,9 @@ public class ProdutoController {
 
     @PostMapping("/registering-product")
     public ResponseEntity<ProdutoModel> create(@RequestBody @Valid ProdutoModel produto) {
-        var newProduto = new ProdutoModel(produto.getId(),produto.getNameProduct(), produto.getPrice());
+        BigDecimal valorTotalCompra = produto.valorTotalCompra();
+        var newProduto = new ProdutoModel(produto.getId(), produto.getNameProduct(), produto.getPrice(), produto.getQuantidade());
+        newProduto.setValorTotalCompra(valorTotalCompra);
         produtoService.createProduto(produto);
         return ResponseEntity.status(HttpStatus.CREATED).body(newProduto);
     }
