@@ -4,11 +4,11 @@ package com.example.simpleStore.services;
 import org.springframework.beans.factory.annotation.Autowired;
 
 
-import org.springframework.http.HttpStatus;
+
 import org.springframework.stereotype.Service;
 
 
-import com.example.simpleStore.dtos.clienteDto;
+
 import com.example.simpleStore.entities.clienteModel;
 import com.example.simpleStore.repositories.ClienteRepository;
 import org.springframework.web.bind.annotation.PathVariable;
