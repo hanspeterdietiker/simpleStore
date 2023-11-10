@@ -1,42 +1,57 @@
 package com.example.simpleStore.controllers;
 
 import java.util.List;
+import java.util.Optional;
 
 
+import com.example.simpleStore.entities.ClienteModel;
+import com.example.simpleStore.entities.ProdutoModel;
+import com.example.simpleStore.services.CompraService;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.example.simpleStore.entities.CompraModel;
-import com.example.simpleStore.repositories.CompraRepository;
 
 @RestController
 @RequestMapping("/api/v1/compras")
 public class CompraController {
 
-    private final CompraRepository compraRepository;
+    private final CompraService compraService;
 
-    public CompraController(CompraRepository compraRepository) {
-        this.compraRepository = compraRepository;
+    public CompraController(CompraService compraService) {
+        this.compraService = compraService;
     }
 
-    @PostMapping("/register-orders")
-    public ResponseEntity<CompraModel> create(@RequestBody CompraModel buy) {
-        if (buy != null) {
-            CompraModel novaCompra = compraRepository.save(buy);
-            return ResponseEntity.status(HttpStatus.ACCEPTED).body(novaCompra);
-        } else {
-            return ResponseEntity.badRequest().build();
-        }
 
+    @PostMapping("/register-order")
+    public ResponseEntity<CompraModel> createCompra(@RequestBody CompraModel buy, HttpServletRequest request) {
+       /* var nameClient = request.getAttribute("nameClient");
+        buy.setCliente((ClienteModel) nameClient);
+
+        var nameProduct = request.getAttribute("nameProduto");
+        buy.setProduto((ProdutoModel) nameProduct);
+
+        var priceProduto = request.getAttribute("valorPorduto");
+        buy.setPrice((ProdutoModel) priceProduto);*/
+
+        var newCompra = new CompraModel(
+                buy.getId(),
+                buy.getQuantidade(), buy.getPurchasedAt());
+        compraService.createCompra(buy);
+        return ResponseEntity.status(HttpStatus.CREATED).body(newCompra);
+    }
+
+
+    @GetMapping("/searching-by-order/{id}")
+    public ResponseEntity<Optional<CompraModel>> getById(@PathVariable Long id) throws Exception {
+        var compra = compraService.getById(id);
+        return ResponseEntity.ok().body(compra);
     }
 
     @GetMapping("/searching-by-orders")
-    public List<CompraModel> getAllCompras() {
-        return compraRepository.findAll();
+    public List<CompraModel> getAllCompras() throws Exception {
+        return compraService.gettAllCompras();
     }
 }

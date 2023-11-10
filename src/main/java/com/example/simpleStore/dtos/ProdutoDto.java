@@ -21,6 +21,7 @@ public class ProdutoDto implements Serializable {
     private String nameProduct;
     private BigDecimal price;
 
+
     public ProdutoDto(ProdutoModel entity) {
         this.id = entity.getId();
         this.nameProduct = entity.getNameProduct();

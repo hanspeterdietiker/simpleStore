@@ -19,7 +19,21 @@ public class ProdutoModel {
     @Column(name = "preco_Produto")
     private BigDecimal price;
 
+    @Column(name = "quantidade_Produto")
+    private int quantidade;
 
+    public int getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
+    }
+
+    public BigDecimal valorTotalCompra(int quantidade, ProdutoModel price) {
+        BigDecimal preco = price.getPrice();
+        return preco.multiply(BigDecimal.valueOf(quantidade));
+    }
 
     public ProdutoModel(Long id, String nameProduct, BigDecimal price) {
         this.id = id;
