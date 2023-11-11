@@ -1,6 +1,7 @@
 package com.example.simpleStore.services;
 
 
+import at.favre.lib.crypto.bcrypt.BCrypt;
 import com.example.simpleStore.dtos.ClienteDto;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -24,7 +25,10 @@ public class ClienteService {
 
 
     public ClienteModel createClient(ClienteModel cliente) {
-        return clienteRepository.save(cliente);
+        var passwordHashred = BCrypt.withDefaults().hashToString(12, cliente.getPassword().toCharArray());
+        cliente.setPassword(passwordHashred);
+        var clientCreated = this.clienteRepository.save(cliente);
+        return clientCreated;
     }
 
 
@@ -51,13 +55,6 @@ public class ClienteService {
         }
     }
 
-    public List<ClienteModel> getAllClientes() throws Exception {
-        if (clienteRepository.findAll().isEmpty()) {
-            throw new Exception("Usuarios não encontrados no Banco de Dados");
-        } else {
-            return clienteRepository.findAll();
-        }
-    }
 
     public void deleteClient(@PathVariable Long id) throws Exception {
         if (clienteRepository.findById(id).isEmpty()) {

@@ -32,7 +32,7 @@ public class ClienteController {
 
     @PostMapping("/register-client")
     public ResponseEntity createClient(@RequestBody @Valid ClienteModel client) {
-        var newClient = new ClienteModel(client.getId(),client.getNameClient(), client.getEmail(), client.getPassword());
+        var newClient = new ClienteModel(client.getId(), client.getNameClient(), client.getEmail(), client.getPassword());
         clienteService.createClient(client);
         return ResponseEntity.status(HttpStatus.CREATED).body(newClient);
     }
@@ -44,12 +44,6 @@ public class ClienteController {
     }
 
 
-    @GetMapping("/searching-by-clients")
-    public List<ClienteModel> getAllClientes() throws Exception {
-        return clienteService.getAllClientes();
-
-    }
-
     @GetMapping("/searching-by-client/{id}")
     public ResponseEntity<Optional<ClienteModel>> searchById(@PathVariable long id) throws Exception {
         var cliente = clienteService.getById(id);
@@ -59,6 +53,6 @@ public class ClienteController {
     @DeleteMapping("/delete-client/{id}")
     public ResponseEntity<String> deleteUserEntity(@PathVariable long id) throws Exception {
         clienteService.deleteClient(id);
-        return  ResponseEntity.ok().body("Cliente deletado");
+        return ResponseEntity.ok().body("Cliente deletado");
     }
 }

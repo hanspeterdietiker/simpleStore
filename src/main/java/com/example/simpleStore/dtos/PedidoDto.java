@@ -4,7 +4,7 @@ import java.io.Serial;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
-import com.example.simpleStore.entities.ProdutoModel;
+import com.example.simpleStore.entities.PedidoModel;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -13,7 +13,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @AllArgsConstructor
-public class ProdutoDto implements Serializable {
+public class PedidoDto implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
 
@@ -22,7 +22,7 @@ public class ProdutoDto implements Serializable {
     private BigDecimal price;
 
 
-    public ProdutoDto(ProdutoModel entity) {
+    public PedidoDto(PedidoModel entity) {
         this.id = entity.getId();
         this.nameProduct = entity.getNameProduct();
         this.price = entity.getPrice();
