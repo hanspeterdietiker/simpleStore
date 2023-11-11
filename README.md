@@ -19,7 +19,7 @@ Working ... 🛠
 
 ![Sem título](https://github.com/hanspeterdietiker/simple_Store_API/assets/126719678/4093783d-3228-4eeb-af95-d31c75594087)
 
-### •Client
+### • Client
 
 ![Sem título](https://github.com/hanspeterdietiker/simple_Store_API/assets/126719678/a92bf7c0-e8f9-4c4a-96d1-68aba7bbcbda)
 
