@@ -1,8 +1,8 @@
 # simple_Store_API
 
-### •Client
+### • Client
 
-### •Order
+### • Order
 
 #
 ### Tecnologias utilizadas: 
@@ -23,5 +23,8 @@ Working ... 🛠
 
 ![Sem título](https://github.com/hanspeterdietiker/simple_Store_API/assets/126719678/a92bf7c0-e8f9-4c4a-96d1-68aba7bbcbda)
 
+### • Order
+
+![Sem título](https://github.com/hanspeterdietiker/simple_Store_API/assets/126719678/86d04555-2d35-496d-b27c-1e79428acf22)
 
 #
