@@ -2,14 +2,19 @@
 
 ### • Client
  Registro(Nome, Email, senha)
+ 
  Atualizar (Nome, Email)
+ 
  Deletar por ID do cliente.
 
 
 ### • Order
 Pedido realizado com Autenticação de Nome e Senha do Cliente
+
 Listar o pedido do cliente por Id do Pedido
+
 Deletar o pedido do cliente por Id do Pedido
+
 Todas ações mencionadas acima é feito por Basic Auth.
 
 #
