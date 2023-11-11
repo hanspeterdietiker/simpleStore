@@ -3,7 +3,7 @@
 ### • Client
  Registro(Nome, Email, senha)
  
- Atualizar (Nome, Email)
+ Atualizar (Nome e Email)
  
  Deletar por ID do cliente.
 
