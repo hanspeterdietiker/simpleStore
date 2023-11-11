@@ -2,15 +2,13 @@
 
 ### •Client
 
-### •Product
-
 ### •Order
 
 #
 ### Tecnologias utilizadas: 
 Java, Maven, SpringBoot , Postman, H2 (DataBase).
 
-Jpa, Hibernate, Lombok, Swagger UI (Api Doc),BCrypt, Basic Auth.
+Jpa, Hibernate, Lombok, Swagger UI (Api Doc), BCrypt, Basic Auth.
 
 Architecture MVC
 
