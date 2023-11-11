@@ -13,9 +13,9 @@
 ### • Order
 Pedido realizado com Autenticação de Nome e Senha do Cliente
 
-Listar o pedido do cliente por Id do Pedido
+Listar o pedido do cliente por ID do Pedido
 
-Deletar o pedido do cliente por Id do Pedido
+Deletar o pedido do cliente por ID do Pedido
 
 Todas ações mencionadas acima é feito por Basic Auth.
 
