@@ -31,17 +31,10 @@ public class PedidoService {
 
     }
 
-    public List<PedidoModel> getAllProdutos() throws Exception {
-        if (pedidoRepository.findAll().isEmpty()) {
-            throw new Exception("Pedido não encontrados no Banco de Dados");
-        } else {
-            return pedidoRepository.findAll();
-        }
-    }
 
     public void deleteProduct(@PathVariable Long id) throws Exception {
         if (pedidoRepository.findById(id).isEmpty()) {
-              throw new Exception("Id do Pedido não encontrada no Banco de Dados");
+            throw new Exception("Id do Pedido não encontrada no Banco de Dados");
         }
         pedidoRepository.existsById(id);
         pedidoRepository.deleteById(id);

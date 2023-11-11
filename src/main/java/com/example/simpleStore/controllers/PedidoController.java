@@ -1,6 +1,7 @@
 package com.example.simpleStore.controllers;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -35,12 +36,13 @@ public class PedidoController {
     @PostMapping("/registering-order")
     public ResponseEntity<PedidoModel> create(@RequestBody @Valid PedidoModel produto, HttpServletRequest request) {
         BigDecimal valorTotalCompra = produto.valorTotalCompra();
+        var compradoAt = LocalDateTime.now();
         var newProduto = new PedidoModel(produto.getId(), produto.getNameProduct(),
-                produto.getPrice(), produto.getQuantidade());
+                produto.getPrice(), produto.getQuantidade(), compradoAt);
         newProduto.setValorTotalCompra(valorTotalCompra);
         produto.setValorTotalCompra(valorTotalCompra);
 
-        pedidoService.createProduto(produto);
+        pedidoService.createProduto(newProduto);
         return ResponseEntity.status(HttpStatus.CREATED).body(newProduto);
     }
 
@@ -51,10 +53,6 @@ public class PedidoController {
         return ResponseEntity.ok().body(produto);
     }
 
-    @GetMapping("/searching-by-orders")
-    public List<PedidoModel> getAllProdutos(HttpServletRequest request) throws Exception {
-        return pedidoService.getAllProdutos();
-    }
 
     @DeleteMapping("/delete-order/{id}")
     public ResponseEntity<String> deleteUserEntity(@PathVariable Long id, HttpServletRequest request) throws Exception {

@@ -31,27 +31,28 @@ public class ClienteController {
 
 
     @PostMapping("/register-client")
-    public ResponseEntity createClient(@RequestBody @Valid ClienteModel client) {
-        var newClient = new ClienteModel(client.getId(), client.getNameClient(), client.getEmail(), client.getPassword());
-        clienteService.createClient(client);
+    public ResponseEntity<ClienteModel> createClient(@RequestBody @Valid ClienteModel client) {
+        var newClient = new ClienteModel(client.getId(), client.getNameClient(),
+                client.getEmail(), client.getPassword());
+        clienteService.createClient(newClient);
         return ResponseEntity.status(HttpStatus.CREATED).body(newClient);
     }
 
     @PutMapping("/update-client/{id}")
     public ResponseEntity<ClienteDto> update(@PathVariable Long id, @RequestBody ClienteDto attClient) throws Exception {
         var updatedClient = clienteService.update(id, attClient);
-        return ResponseEntity.ok(new ClienteDto(updatedClient.getNameClient(), updatedClient.getEmail()));
+        return ResponseEntity.ok(new ClienteDto(updatedClient.getId(),updatedClient.getNameClient(), updatedClient.getEmail()));
     }
 
 
     @GetMapping("/searching-by-client/{id}")
-    public ResponseEntity<Optional<ClienteModel>> searchById(@PathVariable long id) throws Exception {
+    public ResponseEntity<Optional<ClienteModel>> searchById(@PathVariable Long id) throws Exception {
         var cliente = clienteService.getById(id);
         return ResponseEntity.ok().body(cliente);
     }
 
     @DeleteMapping("/delete-client/{id}")
-    public ResponseEntity<String> deleteUserEntity(@PathVariable long id) throws Exception {
+    public ResponseEntity<String> deleteUserEntity(@PathVariable Long id) throws Exception {
         clienteService.deleteClient(id);
         return ResponseEntity.ok().body("Cliente deletado");
     }

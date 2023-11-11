@@ -17,11 +17,12 @@ public class ClienteDto implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
 
+    private Long id;
     private String nameClient;
     private String email;
 
     public ClienteDto(ClienteModel entity){
-        
+        this.id= entity.getId();
         this.nameClient = entity.getNameClient();
         this.email = entity.getEmail();
     }

@@ -1,8 +1,10 @@
 package com.example.simpleStore.entities;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 @Entity(name = "tb_produto")
 public class PedidoModel {
@@ -22,8 +24,19 @@ public class PedidoModel {
     @Column(name = "quantidade_Produto")
     private int quantidade;
 
-    @Column(name = "valorTotalCompra")
+    @Column(name = "valor_Total_Compra")
     private BigDecimal valorTotalCompra;
+
+    public LocalDateTime getCompradoAt() {
+        return compradoAt;
+    }
+
+    public void setCompradoAt(LocalDateTime compradoAt) {
+        this.compradoAt = compradoAt;
+    }
+
+    @CreationTimestamp
+    private LocalDateTime compradoAt;
 
     public PedidoModel() {
 
@@ -52,15 +65,14 @@ public class PedidoModel {
     }
 
 
-    public PedidoModel(Long id, String nameProduct, BigDecimal price, int quantidade) {
+    public PedidoModel(Long id, String nameProduct, BigDecimal price, int quantidade, LocalDateTime compradoAt) {
+        this.compradoAt= compradoAt;
         this.quantidade = quantidade;
         this.id = id;
         this.nameProduct = nameProduct;
         this.price = price;
     }
 
-    public PedidoModel(Long id, String nameProduct, BigDecimal price) {
-    }
 
     public Long getId() {
         return this.id;

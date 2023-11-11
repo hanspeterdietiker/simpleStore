@@ -13,7 +13,7 @@ import com.example.simpleStore.entities.ClienteModel;
 import com.example.simpleStore.repositories.ClienteRepository;
 import org.springframework.web.bind.annotation.PathVariable;
 
-import java.util.List;
+
 import java.util.Optional;
 
 
@@ -27,7 +27,7 @@ public class ClienteService {
     public ClienteModel createClient(ClienteModel cliente) {
         var passwordHashred = BCrypt.withDefaults().hashToString(12, cliente.getPassword().toCharArray());
         cliente.setPassword(passwordHashred);
-        var clientCreated = this.clienteRepository.save(cliente);
+        ClienteModel clientCreated = this.clienteRepository.save(cliente);
         return clientCreated;
     }
 

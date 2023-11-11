@@ -1,28 +1,15 @@
 package com.example.simpleStore.entities;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import jakarta.persistence.*;
 
 @Entity(name = "tb_cliente")
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
 public class ClienteModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     @Column(name = "id_Cliente")
-    private long id;
+    private Long id;
 
     @Column(name = "nome_Cliente")
     private String nameClient;
@@ -34,5 +21,46 @@ public class ClienteModel {
     private String password;
 
 
+    public ClienteModel(Long id, String nameClient, String email, String password) {
+        this.id = id;
+        this.nameClient = nameClient;
+        this.email = email;
+        this.password = password;
+    }
 
+    public ClienteModel() {
+    }
+
+
+    public Long getId() {
+        return this.id;
+    }
+
+    public String getNameClient() {
+        return this.nameClient;
+    }
+
+    public String getEmail() {
+        return this.email;
+    }
+
+    public String getPassword() {
+        return this.password;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setNameClient(String nameClient) {
+        this.nameClient = nameClient;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 }
