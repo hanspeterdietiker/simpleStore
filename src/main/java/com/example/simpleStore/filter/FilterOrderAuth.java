@@ -40,20 +40,23 @@ public class FilterOrderAuth extends OncePerRequestFilter {
 
             var client = this.clienteRepository.findByNameClient(nameCLient);
             if (client == null) {
-                response.sendError(401);
+                response.sendError(401, "Cliente não encontrado");
             } else {
+
                 var passwordVerify = BCrypt.verifyer().verify(password.toCharArray(), client.getPassword());
 
                 if (passwordVerify.verified) {
                     request.setAttribute("Id", client.getId());
                     filterChain.doFilter(request, response);
                 } else {
-                    response.sendError(401);
+                    response.sendError(401,"Senha incorreta");
                 }
             }
         } else {
             filterChain.doFilter(request, response);
         }
+
+
     }
 
 }

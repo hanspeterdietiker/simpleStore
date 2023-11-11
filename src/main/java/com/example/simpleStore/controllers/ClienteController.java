@@ -41,7 +41,7 @@ public class ClienteController {
     @PutMapping("/update-client/{id}")
     public ResponseEntity<ClienteDto> update(@PathVariable Long id, @RequestBody ClienteDto attClient) throws Exception {
         var updatedClient = clienteService.update(id, attClient);
-        return ResponseEntity.ok(new ClienteDto(updatedClient.getId(),updatedClient.getNameClient(), updatedClient.getEmail()));
+        return ResponseEntity.ok(new ClienteDto(updatedClient.getNameClient(), updatedClient.getEmail()));
     }
 
 
