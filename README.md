@@ -12,8 +12,6 @@ Jpa, Hibernate, Lombok, Swagger UI (Api Doc), BCrypt, Basic Auth.
 
 Architecture MVC
 
-Working ... 🛠
-
 #
 ### Api Doc
 
