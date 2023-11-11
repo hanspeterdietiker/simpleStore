@@ -2,8 +2,6 @@
 
 ### •Client
 
-### •Product
-
 ### •Order
 
 #
