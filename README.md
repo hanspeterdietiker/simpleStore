@@ -17,7 +17,7 @@ Listar o pedido do cliente por ID do Pedido
 
 Deletar o pedido do cliente por ID do Pedido
 
-Todas ações mencionadas acima é feito por Basic Auth.
+Todas ações mencionadas acima é feito por Basic Auth.👆
 
 #
 ### Tecnologias utilizadas: 
