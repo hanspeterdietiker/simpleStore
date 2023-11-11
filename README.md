@@ -4,6 +4,8 @@
  Registro(Nome, Email, senha)
  
  Atualizar (Nome e Email)
+
+ Listar por ID do Cliente
  
  Deletar por ID do cliente.
 
