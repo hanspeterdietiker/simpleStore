@@ -1,6 +1,6 @@
 # Simple_Store_API_V1
 
-### • Client
+** • Client **
  Registro(Nome, Email, senha)
  
  Atualizar (Nome e Email)
@@ -10,7 +10,7 @@
  Deletar por ID do cliente.
 
 
-### • Order
+** • Order **
 Pedido realizado com Autenticação de Nome e Senha do Cliente
 
 Listar o pedido do cliente por ID do Pedido
