@@ -2,7 +2,7 @@
 
 ### • Client 
 
- _Registro(Nome, Email, senha)_
+ _Criar Cliente(Nome, Email, senha)_
  
  _Atualizar (Nome e Email)_
 
@@ -12,11 +12,11 @@
 
 
 ### • Order 
-_Pedido realizado com Autenticação de Nome e Senha do Cliente_
+_Criar Pedido com Autenticação de Nome e Senha do Cliente_
 
-_Listar o pedido do cliente por ID do Pedido_
+_Listar o Pedido do cliente por ID do Pedido_
 
-_Deletar o pedido do cliente por ID do Pedido_
+_Deletar o Pedido do cliente por ID do Pedido_
 
 _Todas ações mencionadas acima é feito por Basic Auth.👆_
 
