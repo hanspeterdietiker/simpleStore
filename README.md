@@ -21,7 +21,7 @@ _Deletar o Pedido do cliente por ID do Pedido_
 
 _Todas ações mencionadas acima é feito por Basic Auth.👆_
 
-![Sem título](https://github.com/hanspeterdietiker/simple_Store_API/assets/
+![Sem título](https://github-production-user-asset-6210df.s3.amazonaws.com/126719678/282260205-86d04555-2d35-496d-b27c-1e79428acf22.png)
 #
 ### Tecnologias utilizadas: 
 _Java, Maven, SpringBoot , Postman, H2 (DataBase)._
