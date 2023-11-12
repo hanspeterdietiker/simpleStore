@@ -26,7 +26,7 @@ _Todas ações mencionadas acima é feito por Basic Auth.👆_
 
 #
 ### Tecnologias utilizadas: 
-_Java, Maven, SpringBoot , Postman, H2 (DataBase)._
+_Java, Maven, SpringBoot, Postman, Git, H2 (DataBase)._
 
 _Jpa, Hibernate, Lombok, Swagger UI (Api Doc), BCrypt, Basic Auth._
 
