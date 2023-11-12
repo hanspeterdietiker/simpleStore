@@ -2,31 +2,31 @@
 
 ### • Client 
 
- Registro(Nome, Email, senha)
+ _Registro(Nome, Email, senha)_
  
- Atualizar (Nome e Email)
+ _Atualizar (Nome e Email)_
 
- Listar por ID do Cliente
+ _Listar por ID do Cliente_
  
- Deletar por ID do cliente.
+ _Deletar por ID do cliente._
 
 
 ### • Order 
 _Pedido realizado com Autenticação de Nome e Senha do Cliente_
 
-Listar o pedido do cliente por ID do Pedido
+_Listar o pedido do cliente por ID do Pedido_
 
-Deletar o pedido do cliente por ID do Pedido
+_Deletar o pedido do cliente por ID do Pedido_
 
-Todas ações mencionadas acima é feito por Basic Auth.👆
+_Todas ações mencionadas acima é feito por Basic Auth.👆_
 
 #
 ### Tecnologias utilizadas: 
-Java, Maven, SpringBoot , Postman, H2 (DataBase).
+_Java, Maven, SpringBoot , Postman, H2 (DataBase)._
 
-Jpa, Hibernate, Lombok, Swagger UI (Api Doc), BCrypt, Basic Auth.
+_Jpa, Hibernate, Lombok, Swagger UI (Api Doc), BCrypt, Basic Auth._
 
- M-V-C (Model-View-Control)
+ **M-V-C (Model-View-Control)**
 #
 ### Api Doc
 
