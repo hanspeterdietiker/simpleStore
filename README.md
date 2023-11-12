@@ -26,7 +26,7 @@ _Java, Maven, SpringBoot , Postman, H2 (DataBase)._
 
 _Jpa, Hibernate, Lombok, Swagger UI (Api Doc), BCrypt, Basic Auth._
 
- **M-V-C (Model-View-Control)**
+ _M-V-C (Model-View-Control)_
 #
 ### Api Doc
 
