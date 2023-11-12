@@ -2,7 +2,7 @@
 
 ### • Client 
 
-***Criar Cliente(Nome, Email, senha)***
+_Criar Cliente(Nome, Email, senha)_
  
 _Atualizar (Nome e Email)_
 
