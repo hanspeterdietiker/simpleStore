@@ -3,6 +3,7 @@ package com.example.simpleStore.services;
 
 import at.favre.lib.crypto.bcrypt.BCrypt;
 import com.example.simpleStore.dtos.ClienteDto;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 
 
@@ -32,23 +33,25 @@ public class ClienteService {
     }
 
 
-    public ClienteModel update(@PathVariable Long id, ClienteDto updateClient) throws Exception {
+    public ClienteModel update(@PathVariable Long id, ClienteDto updateClient)   {
+
         var existingClient = clienteRepository.getReferenceById(id);
         if (existingClient != null) {
             existingClient.setNameClient(updateClient.getNameClient());
             existingClient.setEmail(updateClient.getEmail());
             return clienteRepository.save(existingClient);
         } else {
-            throw new Exception("Id não encontrada no Banco de Dados");
+            throw new EntityNotFoundException("Id não encontrada no Banco de Dados");
         }
+
 
 
     }
 
 
-    public Optional<ClienteModel> getById(@PathVariable Long id) throws Exception {
+    public Optional<ClienteModel> getById(@PathVariable Long id)   {
         if (clienteRepository.findById(id).isEmpty()) {
-            throw new Exception("Id do Cliente não encontrada no Banco de Dados");
+            throw new EntityNotFoundException("Id do Cliente não encontrada no Banco de Dados");
 
         } else {
             return clienteRepository.findById(id);
@@ -56,9 +59,9 @@ public class ClienteService {
     }
 
 
-    public void deleteClient(@PathVariable Long id) throws Exception {
+    public void deleteClient(@PathVariable Long id)   {
         if (clienteRepository.findById(id).isEmpty()) {
-            throw new Exception("Id não encontrada no Banco de Dados");
+            throw new EntityNotFoundException("Id não encontrada no Banco de Dados");
         } else {
             clienteRepository.existsById(id);
             clienteRepository.deleteById(id);

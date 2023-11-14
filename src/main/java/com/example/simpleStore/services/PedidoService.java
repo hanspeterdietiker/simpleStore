@@ -4,6 +4,7 @@ import com.example.simpleStore.entities.ClienteModel;
 import com.example.simpleStore.entities.PedidoModel;
 import com.example.simpleStore.repositories.ClienteRepository;
 import com.example.simpleStore.repositories.PedidoRepository;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 
@@ -25,9 +26,9 @@ public class PedidoService {
         return pedidoRepository.save(produto);
     }
 
-    public Optional<PedidoModel> getById(@PathVariable Long id) throws Exception {
+    public Optional<PedidoModel> getById(@PathVariable Long id)   {
         if (pedidoRepository.findById(id).isEmpty()) {
-            throw new Exception("Id do Pedido não encontrada no Banco de Dados");
+            throw new EntityNotFoundException("Id do Pedido não encontrada no Banco de Dados");
         } else {
             return pedidoRepository.findById(id);
         }
@@ -35,9 +36,9 @@ public class PedidoService {
     }
 
 
-    public void deletePedido(@PathVariable Long id) throws Exception {
+    public void deletePedido(@PathVariable Long id)   {
         if (pedidoRepository.findById(id).isEmpty()) {
-            throw new Exception("Id do Pedido não encontrada no Banco de Dados");
+            throw new EntityNotFoundException("Id do Pedido não encontrada no Banco de Dados");
         }
         pedidoRepository.existsById(id);
         pedidoRepository.deleteById(id);

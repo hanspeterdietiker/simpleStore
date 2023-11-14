@@ -35,7 +35,7 @@ public class PedidoController {
 
 
     @PostMapping("/registering-order")
-    public ResponseEntity createPedido(@RequestBody @Valid PedidoModel pedido, HttpServletRequest request) throws Exception {
+    public ResponseEntity createPedido(@RequestBody @Valid PedidoModel pedido, HttpServletRequest request)   {
         BigDecimal valorTotalCompra = pedido.valorTotalCompra();
         var compradoAt = LocalDateTime.now();
 
@@ -53,14 +53,14 @@ public class PedidoController {
 
 
     @GetMapping("/searching-by-order/{id}")
-    public ResponseEntity<Optional<PedidoModel>> getById(@PathVariable Long id, HttpServletRequest request) throws Exception {
+    public ResponseEntity<Optional<PedidoModel>> getById(@PathVariable Long id, HttpServletRequest request)   {
         var produto = pedidoService.getById(id);
         return ResponseEntity.ok().body(produto);
     }
 
 
     @DeleteMapping("/delete-order/{id}")
-    public ResponseEntity<String> deleteUserEntity(@PathVariable Long id, HttpServletRequest request) throws Exception {
+    public ResponseEntity<String> deleteUserEntity(@PathVariable Long id, HttpServletRequest request)   {
         pedidoService.deletePedido(id);
         return ResponseEntity.ok().body("Pedido Deletado");
     }

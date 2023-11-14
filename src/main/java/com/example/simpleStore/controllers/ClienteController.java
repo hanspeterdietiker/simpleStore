@@ -39,20 +39,20 @@ public class ClienteController {
     }
 
     @PutMapping("/update-client/{id}")
-    public ResponseEntity<ClienteDto> update(@PathVariable Long id, @RequestBody ClienteDto attClient) throws Exception {
+    public ResponseEntity<ClienteDto> update(@PathVariable Long id, @RequestBody ClienteDto attClient)   {
         var updatedClient = clienteService.update(id, attClient);
         return ResponseEntity.ok(new ClienteDto(updatedClient.getNameClient(), updatedClient.getEmail()));
     }
 
 
     @GetMapping("/searching-by-client/{id}")
-    public ResponseEntity<Optional<ClienteModel>> searchById(@PathVariable Long id) throws Exception {
+    public ResponseEntity<Optional<ClienteModel>> searchById(@PathVariable Long id)   {
         var cliente = clienteService.getById(id);
         return ResponseEntity.ok().body(cliente);
     }
 
     @DeleteMapping("/delete-client/{id}")
-    public ResponseEntity<String> deleteUserEntity(@PathVariable Long id) throws Exception {
+    public ResponseEntity<String> deleteUserEntity(@PathVariable Long id)   {
         clienteService.deleteClient(id);
         return ResponseEntity.ok().body("Cliente deletado");
     }
