@@ -22,7 +22,8 @@ _Deletar o Pedido do cliente por ID do Pedido_
 
 _Todas ações mencionadas acima é feito por Basic Auth.👆_
 
-![Sem título](https://github-production-user-asset-6210df.s3.amazonaws.com/126719678/282260205-86d04555-2d35-496d-b27c-1e79428acf22.png)
+![Sem título](https://github.com/hanspeterdietiker/Simple_Store_ApiRest/assets/126719678/d5287633-d83e-4fbe-b3c0-8dba0425875f)
+
 
 #
 ### Tecnologias utilizadas: 
