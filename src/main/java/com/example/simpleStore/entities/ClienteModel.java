@@ -1,6 +1,12 @@
 package com.example.simpleStore.entities;
 
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+
+import java.util.ArrayList;
+import java.util.List;
+
 
 @Entity(name = "tb_cliente")
 public class ClienteModel {
@@ -17,10 +23,18 @@ public class ClienteModel {
     @Column(name = "email_Cliente")
     private String email;
 
+
     @Column(name = "senha_Cliente")
     private String password;
 
 
+    @JsonIgnore
+    @OneToMany
+    @Column(name = "pedidos_cliente")
+    private List<PedidoModel> pedidos = new ArrayList<>();
+
+    public ClienteModel() {
+    }
     public ClienteModel(Long id, String nameClient, String email, String password) {
         this.id = id;
         this.nameClient = nameClient;
@@ -28,9 +42,11 @@ public class ClienteModel {
         this.password = password;
     }
 
-    public ClienteModel() {
-    }
 
+
+    public List<PedidoModel> getPedidos() {
+        return pedidos;
+    }
 
     public Long getId() {
         return this.id;

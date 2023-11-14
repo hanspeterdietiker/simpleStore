@@ -1,5 +1,6 @@
 package com.example.simpleStore.entities;
 
+
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -27,6 +28,32 @@ public class PedidoModel {
     @Column(name = "valor_Total_Compra")
     private BigDecimal valorTotalCompra;
 
+
+    @ManyToOne
+    @JoinColumn(name = "Id_Client")
+    private ClienteModel cliente;
+
+
+    @CreationTimestamp
+    private LocalDateTime compradoAt;
+
+    public PedidoModel() {
+
+    }
+
+    public PedidoModel(Long id, String nameProduct, BigDecimal price, int quantidade,
+                       LocalDateTime compradoAt,
+                       ClienteModel cliente) {
+        this.compradoAt = compradoAt;
+        this.quantidade = quantidade;
+        this.id = id;
+        this.nameProduct = nameProduct;
+        this.price = price;
+        this.cliente = cliente;
+
+    }
+
+
     public LocalDateTime getCompradoAt() {
         return compradoAt;
     }
@@ -35,11 +62,8 @@ public class PedidoModel {
         this.compradoAt = compradoAt;
     }
 
-    @CreationTimestamp
-    private LocalDateTime compradoAt;
-
-    public PedidoModel() {
-
+    public ClienteModel getCliente() {
+        return cliente;
     }
 
     public int getQuantidade() {
@@ -65,15 +89,6 @@ public class PedidoModel {
     }
 
 
-    public PedidoModel(Long id, String nameProduct, BigDecimal price, int quantidade, LocalDateTime compradoAt) {
-        this.compradoAt= compradoAt;
-        this.quantidade = quantidade;
-        this.id = id;
-        this.nameProduct = nameProduct;
-        this.price = price;
-    }
-
-
     public Long getId() {
         return this.id;
     }
@@ -96,5 +111,9 @@ public class PedidoModel {
 
     public void setPrice(BigDecimal price) {
         this.price = price;
+    }
+
+    public void setCliente(ClienteModel clienteExistente) {
+        this.cliente = cliente;
     }
 }

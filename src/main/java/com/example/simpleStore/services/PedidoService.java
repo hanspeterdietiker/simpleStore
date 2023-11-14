@@ -1,11 +1,12 @@
 package com.example.simpleStore.services;
 
+import com.example.simpleStore.entities.ClienteModel;
 import com.example.simpleStore.entities.PedidoModel;
+import com.example.simpleStore.repositories.ClienteRepository;
 import com.example.simpleStore.repositories.PedidoRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 
-import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -14,11 +15,13 @@ public class PedidoService {
 
     private final PedidoRepository pedidoRepository;
 
+
     public PedidoService(PedidoRepository pedidoRepository) {
         this.pedidoRepository = pedidoRepository;
+
     }
 
-    public PedidoModel createProduto(PedidoModel produto) {
+    public PedidoModel createPedido(PedidoModel produto) {
         return pedidoRepository.save(produto);
     }
 
@@ -32,7 +35,7 @@ public class PedidoService {
     }
 
 
-    public void deleteProduct(@PathVariable Long id) throws Exception {
+    public void deletePedido(@PathVariable Long id) throws Exception {
         if (pedidoRepository.findById(id).isEmpty()) {
             throw new Exception("Id do Pedido não encontrada no Banco de Dados");
         }

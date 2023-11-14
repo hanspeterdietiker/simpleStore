@@ -2,7 +2,7 @@ package com.example.simpleStore.controllers;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
-import java.util.List;
+
 import java.util.Optional;
 
 import com.example.simpleStore.services.PedidoService;
@@ -33,17 +33,22 @@ public class PedidoController {
     }
 
 
-    @PostMapping("/registering-order")
-    public ResponseEntity<PedidoModel> create(@RequestBody @Valid PedidoModel produto, HttpServletRequest request) {
-        BigDecimal valorTotalCompra = produto.valorTotalCompra();
-        var compradoAt = LocalDateTime.now();
-        var newProduto = new PedidoModel(produto.getId(), produto.getNameProduct(),
-                produto.getPrice(), produto.getQuantidade(), compradoAt);
-        newProduto.setValorTotalCompra(valorTotalCompra);
-        produto.setValorTotalCompra(valorTotalCompra);
 
-        pedidoService.createProduto(newProduto);
-        return ResponseEntity.status(HttpStatus.CREATED).body(newProduto);
+    @PostMapping("/registering-order")
+    public ResponseEntity createPedido(@RequestBody @Valid PedidoModel pedido, HttpServletRequest request) throws Exception {
+        BigDecimal valorTotalCompra = pedido.valorTotalCompra();
+        var compradoAt = LocalDateTime.now();
+
+
+        PedidoModel newPedido = new PedidoModel(pedido.getId(), pedido.getNameProduct(),
+                pedido.getPrice(), pedido.getQuantidade(),
+                compradoAt, pedido.getCliente());
+
+        newPedido.setValorTotalCompra(valorTotalCompra);
+        pedido.setValorTotalCompra(valorTotalCompra);
+
+        pedidoService.createPedido(newPedido);
+        return ResponseEntity.status(HttpStatus.CREATED).body(newPedido);
     }
 
 
@@ -56,8 +61,8 @@ public class PedidoController {
 
     @DeleteMapping("/delete-order/{id}")
     public ResponseEntity<String> deleteUserEntity(@PathVariable Long id, HttpServletRequest request) throws Exception {
-        pedidoService.deleteProduct(id);
-        return ResponseEntity.ok().body("Produto Deletado");
+        pedidoService.deletePedido(id);
+        return ResponseEntity.ok().body("Pedido Deletado");
     }
 }
 

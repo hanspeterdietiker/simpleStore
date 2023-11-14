@@ -10,7 +10,7 @@ import java.util.Optional;
 
 public interface PedidoRepository extends JpaRepository<PedidoModel, Long>{
     
-    Optional<PedidoModel> findById(long id);
+    Optional<PedidoModel> findById(Long id);
 
 
 }
