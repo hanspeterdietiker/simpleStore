@@ -6,6 +6,7 @@ import jakarta.persistence.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 
 @Entity(name = "tb_cliente")
@@ -43,6 +44,18 @@ public class ClienteModel {
     }
 
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ClienteModel that = (ClienteModel) o;
+        return Objects.equals(id, that.id) && Objects.equals(nameClient, that.nameClient) && Objects.equals(email, that.email);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, nameClient, email);
+    }
 
     public List<PedidoModel> getPedidos() {
         return pedidos;

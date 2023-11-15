@@ -6,6 +6,7 @@ import org.hibernate.annotations.CreationTimestamp;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 @Entity(name = "tb_produto")
 public class PedidoModel {
@@ -15,6 +16,7 @@ public class PedidoModel {
 
     @Column(name = "id_Produto")
     private Long id;
+
 
     @Column(name = "nome_Produto")
     private String nameProduct;
@@ -53,6 +55,18 @@ public class PedidoModel {
 
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        PedidoModel that = (PedidoModel) o;
+        return Objects.equals(id, that.id) && Objects.equals(nameProduct, that.nameProduct);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, nameProduct);
+    }
 
     public LocalDateTime getCompradoAt() {
         return compradoAt;
